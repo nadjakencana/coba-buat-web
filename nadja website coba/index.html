@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- ✅ General Meta Tags -->
+  <title>Nadja Kencana - Digital Portofolio</title>
+  <meta name="description" content="Portofolio digital Nadja Kencana: video sinematik, kolaborasi brand, dan pemograman." />
+
+  <!-- ✅ Open Graph / Facebook Meta Tags -->
+  <meta property="og:title" content="Nadja Kencana - Digital Portofolio" />
+  <meta property="og:description" content="Lihat karya reels videography, brand collaboration dan pemograman dari Nadja Kencana. Estetik. Profesional. Unik." />
+  <meta property="og:image" content="https://nadjakencana.web.id/preview.jpg" />
+  <meta property="og:url" content="https://nadjakencana.web.id" />
+  <meta property="og:type" content="website" />
+
+  <!-- ✅ Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nadja Kencana - Digital Portofolio" />
+  <meta name="twitter:description" content="Lihat karya reels videography, brand collaboration dan pemograman dari Nadja Kencana." />
+  <meta name="twitter:image" content="https://nadjakencana.web.id/preview.jpg" />
+
+  <!-- ✅ Google Site Verification -->
+  <meta name="google-site-verification" content="BeAMLWnmKRXVY1i8ivDkiQNmzxMGwy9_6y4B_L3JEOo" />
+
+  <style>
+    /* Menambahkan style untuk scroll halus */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @font-face {
+      font-family: 'Dela Gothic One';
+      src: url('fonts/DelaGothicOne.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Consolas';
+      src: url('fonts/Consolas.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Consolas', monospace;
+      position: relative;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      background: url("backround%20baru.png") no-repeat center center fixed;
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    header {
+      padding: 20px;
+      min-height: 100vh; /* Membuat header memenuhi layar awal */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.4s ease-in-out;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 900px;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .circle-wrapper {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      flex-shrink: 0;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .rotating-ring {
+      width: 100%;
+      height: 100%;
+      animation: rotate 8s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #fff;
+      z-index: 2;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .header-text {
+        margin-left: 40px;
+        text-align: left;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .title {
+      font-family: 'Dela Gothic One', sans-serif;
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .typewriter {
+      font-family: 'Dela Gothic One', sans-serif;
+      overflow: hidden;
+      border-right: .15em solid #007c91;
+      white-space: nowrap;
+      margin: 10px 0;
+      font-size: 1.2rem;
+      width: fit-content;
+      animation:
+        typing-loop 4s steps(20, end) infinite,
+        blink .75s step-end infinite;
+    }
+
+    @keyframes typing-loop {
+      0% { width: 0; }
+      40% { width: 100%; }
+      60% { width: 100%; }
+      100% { width: 0; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      transition: all 0.4s ease-in-out;
+    }
+
+    nav a {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #007c91;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: #bdf5ff;
+    }
+
+    .scroll-hint {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #333;
+      transition: all 0.4s ease-in-out;
+    }
+
+    /* --- Gaya Saat di-Scroll --- */
+    header.scrolled .header-content {
+        flex-direction: column;
+    }
+    header.scrolled .header-text {
+        text-align: center;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    header.scrolled .typewriter {
+        margin: 10px auto;
+    }
+    header.scrolled nav {
+        justify-content: center;
+    }
+    
+    /* --- Media Query untuk Mobile --- */
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+        }
+        .header-text {
+            text-align: center;
+            margin-left: 0;
+            margin-top: 20px;
+        }
+        .typewriter {
+            margin: 10px auto;
+        }
+        nav {
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+        }
+        header.scrolled nav {
+            flex-direction: row;
+            gap: 10px;
+        }
+    }
+
+
+    /* Konten utama disembunyikan di awal */
+    #main-content {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      transform: translateY(20px);
+    }
+
+    #main-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+      margin: 20px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #007c91;
+      margin-bottom: 30px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px 25px;
+      border-radius: 15px;
+      display: inline-block;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .image-gallery img, .video-gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .image-gallery img:hover, .video-gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    #reels-cinevlog .image-gallery img {
+        width: 210px;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+    }
+
+    .video-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .video-box {
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .video-box a, .image-gallery a {
+      display: block;
+      text-decoration: none;
+      color: #007c91;
+      font-weight: bold;
+    }
+
+    .iframe-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 150%;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .iframe-container:hover {
+        transform: scale(1.02);
+    }
+
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        pointer-events: none;
+    }
+
+    #scrollTopBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: #007c91;
+        color: white;
+        cursor: pointer;
+        padding: 12px 15px;
+        border-radius: 50%;
+        font-size: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+        transform: translateY(20px);
+    }
+
+    #scrollTopBtn.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    #scrollTopBtn:hover {
+        background-color: #005f73;
+    }
+    
+    /* --- Gaya Pemutar Musik --- */
+    .audio-player-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .player-instance {
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(5px);
+        border-radius: 15px;
+        padding: 10px 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        width: 220px;
+        text-align: center;
+    }
+    .player-title {
+        font-family: 'Dela Gothic One', sans-serif;
+        font-size: 1rem;
+        margin: 0 0 5px 0;
+        color: #333;
+    }
+    .player-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 5px;
+    }
+    .player-controls button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .player-controls button svg {
+        width: 24px;
+        height: 24px;
+        fill: #007c91;
+        transition: transform 0.2s;
+    }
+    .player-controls button:hover svg {
+        transform: scale(1.1);
+    }
+    .now-playing-display {
+        font-size: 0.75rem;
+        color: #555;
+        height: 1.2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+        .audio-player-container {
+            top: auto;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            flex-direction: row;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 5px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        .player-instance {
+            width: auto;
+            padding: 5px 10px;
+            box-shadow: none;
+            background: none;
+            backdrop-filter: none;
+        }
+        .player-title, .now-playing-display {
+            font-size: 0.7rem;
+        }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+        <div class="circle-wrapper">
+          <div class="rotating-ring">
+            <img src="lingkaran%20kekuatan.png" alt="Ring" style="width:100%; height:100%">
+          </div>
+          <div class="profile-img">
+            <img src="profile%20baru.png" alt="Nadja" />
+          </div>
+        </div>
+        <div class="header-text">
+            <div class="title">Nadja Kencana</div>
+            <div class="typewriter">Digital Portofolio</div>
+            <nav>
+              <a href="https://saweria.co/nadjakencana" target="_blank">Saweria</a>
+              <a href="https://instagram.com/nadjakencana" target="_blank">Instagram</a>
+              <a href="#digital-product">Tugas Besar PBO</a>
+            </nav>
+        </div>
+    </div>
+    <div class="scroll-hint">SCROLL UNTUK MELIHAT DIGITAL PORTOFOLIO</div>
+  </header>
+
+  <main id="main-content">
+      <!-- Reels #CineVlog -->
+      <section id="reels-cinevlog">
+        <div class="section-title">Reels #CineVlog</div>
+        <div class="image-gallery">
+          <a href="https://www.instagram.com/nadjakencana/reel/DIi4mZzSQF-/" target="_blank">
+            <img src="kedan.jpg" alt="Kedan" onerror="this.onerror=null;this.src='https://placehold.co/210x280/EEE/31343C?text=kedan.jpg';">
+          </a>
+          <a href="https://www.instagram.com/nadjakencana/reel/DJV9ph5yPTF/" target="_blank">
+            <img src="fading.jpg" alt="Fading" onerror="this.onerror=null;this.src='https://placehold.co/210x280/EEE/31343C?text=fading.jpg';">
+          </a>
+          <a href="https://www.instagram.com/nadjakencana/reel/DI3hxE9SC-C/" target="_blank">
+            <img src="golden.jpg" alt="Golden" onerror="this.onerror=null;this.src='https://placehold.co/210x280/EEE/31343C?text=golden.jpg';">
+          </a>
+          <a href="https://www.instagram.com/nadjakencana/reel/DLFXggjS3tG/" target="_blank">
+            <img src="papaden.jpg" alt="Papaden" onerror="this.onerror=null;this.src='https://placehold.co/210x280/EEE/31343C?text=papaden.jpg';">
+          </a>
+          <a href="https://www.instagram.com/nadjakencana/reel/DKiwuAgSpHJ/" target="_blank">
+            <img src="eid.jpg" alt="Eid" onerror="this.onerror=null;this.src='https://placehold.co/210x280/EEE/31343C?text=eid.jpg';">
+          </a>
+        </div>
+      </section>
+
+      <!-- CINEMATOGRAPHY -->
+      <section id="cinematography">
+        <div class="section-title">CINEMATOGRAPHY</div>
+        <div class="video-gallery">
+          <div class="video-box">
+            <a href="https://www.instagram.com/reel/DKMr1hcSm62/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
+                <img src="cinem2.jpg" alt="Cinematography 1" onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEE/31343C?text=cinem2.jpg';">
+            </a>
+          </div>
+          <div class="video-box">
+            <a href="https://www.instagram.com/reel/DJzNaSUS7SG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
+                <img src="cinem1.jpg" alt="Cinematography 2" onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEE/31343C?text=cinem1.jpg';">
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- BRAND COLLABORATION -->
+      <section id="brand-collaboration">
+        <div class="section-title">BRAND COLLABORATION</div>
+        <div class="video-gallery">
+          <div class="video-box">
+            <a href="https://www.instagram.com/reel/DIi4mZzSQF-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
+                <img src="bc1.jpg" alt="Brand Collaboration" onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEE/31343C?text=bc1.jpg';">
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN BARU UNTUK APLIKASI STREAMLIT -->
+      <section id="digital-product">
+        <div class="section-title">Tugas Besar PBO</div>
+        <a href="https://tubesnadjakencana.streamlit.app/" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+            <p style="margin-bottom: 20px;">Ini adalah aplikasi Info Lokasi Nongkrong Mahasiswa Tembalang yang saya buat. (Klik untuk membuka di tab baru)</p>
+            <div class="iframe-container">
+              <iframe
+                src="https://tubesnadjakencana.streamlit.app/?embed=true"
+                title="Aplikasi Streamlit Nadja Kencana">
+              </iframe>
+            </div>
+        </a>
+      </section>
+  </main>
+  
+  <button id="scrollTopBtn" title="Kembali ke atas">▲</button>
+  
+  <!-- Pemutar Musik -->
+  <div class="audio-player-container">
+      <div id="player-matsurat" class="player-instance">
+          <h4 class="player-title">Al - Matsurat</h4>
+          <div class="player-controls">
+              <button id="matsurat-prev-btn" title="Sebelumnya">
+                  <svg viewBox="0 0 24 24"><path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6 1.41-1.41zM6 6h2v12H6V6z"></path></svg>
+              </button>
+              <button id="matsurat-play-btn" title="Putar/Jeda">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5z"></path></svg>
+              </button>
+              <button id="matsurat-next-btn" title="Berikutnya">
+                  <svg viewBox="0 0 24 24"><path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM16 6h2v12h-2V6z"></path></svg>
+              </button>
+          </div>
+          <div id="matsurat-now-playing" class="now-playing-display">Pilih lagu</div>
+      </div>
+      <div id="player-asmr" class="player-instance">
+          <h4 class="player-title">ASMR</h4>
+          <div class="player-controls">
+              <button id="asmr-prev-btn" title="Sebelumnya">
+                  <svg viewBox="0 0 24 24"><path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6 1.41-1.41zM6 6h2v12H6V6z"></path></svg>
+              </button>
+              <button id="asmr-play-btn" title="Putar/Jeda">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5z"></path></svg>
+              </button>
+              <button id="asmr-next-btn" title="Berikutnya">
+                  <svg viewBox="0 0 24 24"><path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM16 6h2v12h-2V6z"></path></svg>
+              </button>
+          </div>
+          <div id="asmr-now-playing" class="now-playing-display">Pilih lagu</div>
+      </div>
+  </div>
+
+  <audio id="matsurat-audio"></audio>
+  <audio id="asmr-audio"></audio>
+
+  <script>
+    // --- Script Konten Utama & Scroll ---
+    const header = document.querySelector('header');
+    const mainContent = document.getElementById('main-content');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    let contentShown = false;
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        if (!contentShown && (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)) {
+            mainContent.classList.add('visible');
+            contentShown = true;
+        }
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    };
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    
+    // --- Script Pemutar Musik ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const playlists = [
+            {
+                name: 'Al - Matsurat',
+                audioElement: document.getElementById('matsurat-audio'),
+                playBtn: document.getElementById('matsurat-play-btn'),
+                prevBtn: document.getElementById('matsurat-prev-btn'),
+                nextBtn: document.getElementById('matsurat-next-btn'),
+                nowPlayingDisplay: document.getElementById('matsurat-now-playing'),
+                tracks: [
+                    { name: 'Matsurat Pagi', src: 'matsurat pagi.mp3' },
+                    { name: 'Matsurat Sore', src: 'matsurat sore.mp3' }
+                ],
+                loop: false,
+                currentTrackIndex: 0,
+                isPlaying: false
+            },
+            {
+                name: 'ASMR',
+                audioElement: document.getElementById('asmr-audio'),
+                playBtn: document.getElementById('asmr-play-btn'),
+                prevBtn: document.getElementById('asmr-prev-btn'),
+                nextBtn: document.getElementById('asmr-next-btn'),
+                nowPlayingDisplay: document.getElementById('asmr-now-playing'),
+                tracks: [
+                    { name: 'Sleep ASMR', src: 'sleep asmr.mp3' },
+                    { name: 'Forest ASMR', src: 'forest asmr.mp3' }
+                ],
+                loop: true,
+                currentTrackIndex: 0,
+                isPlaying: false
+            }
+        ];
+
+        const playIcon = '<path d="M8 5v14l11-7L8 5z"></path>';
+        const pauseIcon = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>';
+
+        function loadTrack(playerIndex) {
+            const player = playlists[playerIndex];
+            const track = player.tracks[player.currentTrackIndex];
+            player.audioElement.src = track.src;
+            player.audioElement.loop = player.loop;
+            player.nowPlayingDisplay.textContent = track.name;
+        }
+
+        function playTrack(playerIndex) {
+            // Pause semua player lain
+            playlists.forEach((p, index) => {
+                if (index !== playerIndex && p.isPlaying) {
+                    pauseTrack(index);
+                }
+            });
+
+            const player = playlists[playerIndex];
+            player.audioElement.play();
+            player.isPlaying = true;
+            player.playBtn.querySelector('svg').innerHTML = pauseIcon;
+        }
+
+        function pauseTrack(playerIndex) {
+            const player = playlists[playerIndex];
+            player.audioElement.pause();
+            player.isPlaying = false;
+            player.playBtn.querySelector('svg').innerHTML = playIcon;
+        }
+
+        function prevTrack(playerIndex) {
+            const player = playlists[playerIndex];
+            player.currentTrackIndex--;
+            if (player.currentTrackIndex < 0) {
+                player.currentTrackIndex = player.tracks.length - 1;
+            }
+            loadTrack(playerIndex);
+            playTrack(playerIndex);
+        }
+
+        function nextTrack(playerIndex) {
+            const player = playlists[playerIndex];
+            player.currentTrackIndex++;
+            if (player.currentTrackIndex >= player.tracks.length) {
+                player.currentTrackIndex = 0;
+            }
+            loadTrack(playerIndex);
+            playTrack(playerIndex);
+        }
+
+        playlists.forEach((player, index) => {
+            loadTrack(index); // Muat lagu pertama saat halaman dibuka
+
+            player.playBtn.addEventListener('click', () => {
+                if (player.isPlaying) {
+                    pauseTrack(index);
+                } else {
+                    playTrack(index);
+                }
+            });
+
+            player.nextBtn.addEventListener('click', () => nextTrack(index));
+            player.prevBtn.addEventListener('click', () => prevTrack(index));
+
+            player.audioElement.addEventListener('ended', () => {
+                if (!player.loop) {
+                    // Jika tidak loop, berhenti dan reset tampilan
+                    player.isPlaying = false;
+                    player.playBtn.querySelector('svg').innerHTML = playIcon;
+                }
+                // Fungsi loop sudah ditangani oleh atribut `loop` pada elemen audio
+            });
+        });
+    });
+
+  </script>
+
+</body>
+</html>
